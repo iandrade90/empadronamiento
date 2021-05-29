@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Inicio</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="d-flex flex-row-reverse">
+	<a href="{% url 'logout' %}" class="flex-column text-info">Finalizar sesión</a>	
+      </div>
+      <div class="d-flex flex-row-reverse">
+	<a href="{% url 'perfil' %}" class="flex-column text-info">Perfil</a>
+      </div>
+      <div class="">
+	<h1 class="">Tablero de Inicio</h1>
+      </div>
+    </div>
+    <div class="d-sm-flex flex-sm-wrap card shadow-lg p-4 mt-5">
+      <div class="">
+	<h2 class="p-1 m-1 text-black-50">Informacion Declarada</h2><a href="{% url 'info' user.id %}" class="stretched-link"></a>
+      </div>
+    </div>
+    <div class="d-sm-flex card shadow-lg p-4 mt-5">
+      <div class="">
+      	<h2 class="p-1 m-1 text-black-50">Descargar PDF de la Declaración Jurada</h2><a href="#" class="stretched-link"></a>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

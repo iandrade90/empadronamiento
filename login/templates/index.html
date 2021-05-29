@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP - Inicio</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="d-flex flex-row-reverse">
+	<a href="#" class="text-info">Funcionario</a>
+      </div>
+      <div class="">
+	<h1 class="">Sistema de Empadronamiento Online</h1>
+      </div>
+    </div>
+    {% if messages %}
+     {% for message in messages %}
+     <div class="alert alert-{{ message.tags }}">
+       {{ message }}
+     </div>
+     {% endfor %}
+    {% endif %}
+    <div class="container card w-50 shadow-lg p-4 mt-5">
+      <div class="m-auto">
+      	<h1 class="p-1 m-1 align-middle text-black-50">Bienvenido/a!</h1>
+	<a href="{% url 'login' %}" class="m-1 p-1 text-info">Iniciar sesion</a>
+      </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

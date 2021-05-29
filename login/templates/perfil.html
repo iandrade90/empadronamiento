@@ -1,0 +1,57 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP - Inicio</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="d-flex flex-row-reverse">
+	<a href="{% url 'logout' %}" class="text-info">Finalizar sesión</a>
+      </div>
+      <div class="">
+	<h1 class="">Bienvenido/a {{ user.username }}</h1>
+      </div>
+    </div>
+    <div class="">
+      {% if user.email %}
+      <div class="container-sm card w-50 shadow-lg p-4 mt-5">
+	<div class="m-auto">
+	  <h2 class="p-1 m-1 align-middle text-black-50">Correo electronico asociado a su cuenta</h2>
+	</div>
+	<div class="mx-auto">
+	  <h3 class="text-info">{{ user.email }}</h3>
+	</div>
+      </div>
+      {% else %}
+      <div class="d-flex justify-content-center">
+	<div class="card shadow-lg p-4">
+	  <h1>Establecer un correo electronico</h1>
+	  <form method="POST" enctype="multipart/form-data">
+	    {% csrf_token %}
+	    <fieldset class="form-group">
+	      {{ u_form|crispy }}
+	    </fieldset>
+	    <div class="container-sm">
+	      <button class="m-2 btn btn-secondary" type="submit">Actualizar</button>
+	    </div>
+	  </form>
+	</div>
+      </div>
+      {% endif %}
+    </div>
+    <div class="col">
+      <a href="{% url 'tablero' %}" class="float-right m-2 small text-info">Regresar al Tablero de Inicio</a>
+    </div> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
