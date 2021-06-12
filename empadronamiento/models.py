@@ -6,7 +6,7 @@ class Person(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     dni = models.CharField(max_length=8)
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, unique=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.dni
@@ -20,15 +20,6 @@ class Address(models.Model):
     codigo_postal = models.CharField(max_length=8)
     piso = models.CharField(max_length=4, null=True, blank=True)
     departamento = models.CharField(max_length=8, null=True, blank=True)
-    persona = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.calle
-
-    def get_absolute_url(self):
-        return reverse('tablero')
-
-class Neighborhood(models.Model):
     BARRIOS_OPCIONES = (
             ('Agronomia','Agronomia'),('Almagro','Almagro'),('Balvanera','Balvanera'),
             ('Barracas','Barracas'),('Belgrano','Belgrano'),('Boedo','Boedo'),
@@ -46,5 +37,12 @@ class Neighborhood(models.Model):
             ('Villa Ortuzar','Villa Ortuzar'),('Villa Pueyrredon','Villa Pueyrredon'),('Villa Real','Villa Real'),
             ('Villa Riachuelo','Villa Riachuelo'),('Villa Santa Rita','Villa Santa Rita'),('Villa Soldati','Villa Soldati'),
             ('Villa Urquiza','Villa Urquiza'),('Villa del Parque','Villa del Parque'),('Velez Sarsfield','Velez Sarsfield'))
-    nombre = models.CharField(max_length=50, choices=BARRIOS_OPCIONES)
-    direccion = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    barrio = models.CharField(max_length=50, default='Barrio', choices=BARRIOS_OPCIONES)
+    persona = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.calle
+
+    def get_absolute_url(self):
+        return reverse('tablero')
+

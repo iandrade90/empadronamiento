@@ -1,7 +1,12 @@
 from django.forms import ModelForm
-from .models import Person, Neighborhood, Address
+from .models import Person, Address
 
 class PersonForm(ModelForm):
     class Meta:
         model = Person
-        fields = ['fname', 'lname', 'dni']
+        fields = ['nombre', 'apellido', 'dni']
+
+class AddressForm(ModelForm):
+    class Meta:
+        model = Address
+        fields = ['calle', 'no', 'codigo_postal', 'piso', 'departamento', 'barrio']

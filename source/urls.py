@@ -16,7 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
-from empadronamiento.views import CreatePerson, CreateAddress, CreateNeighborhood, DetailAddressView, DetailPersonView
+from empadronamiento.views import (
+        CreatePerson, 
+        CreateAddress, 
+        DetailAddressView, 
+        DetailPersonView,
+        UpdatePerson,
+        UpdateAddress)
 from login.views import login, register, homePage, profile, dashboard
 from django.contrib.auth import views as auth_views
 
@@ -34,5 +40,6 @@ urlpatterns = [
     path('tablero/perfil/', profile, name='perfil'),
     path('tablero/registro_persona/', CreatePerson.as_view(), name='registro_persona'),
     path('tablero/registro_direccion/', CreateAddress.as_view(), name='registro_direccion'),
-    path('tablero/registro_barrio/', CreateNeighborhood.as_view(), name='registro_barrio'),
+    path('tablero/modificar_info_personal/<int:p_id>', UpdatePerson.as_view(), name='modificar_info_personal'),
+    path('tablero/modificar_direccion/<int:p_id>', UpdateAddress.as_view(), name='modificar_direccion'),
 ]
