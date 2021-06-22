@@ -25,6 +25,7 @@ from empadronamiento.views import (
         UpdateAddress)
 from login.views import login, register, homePage, profile, dashboard
 from django.contrib.auth import views as auth_views
+from empadronamiento.utils import CreatePdf
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -42,4 +43,5 @@ urlpatterns = [
     path('tablero/registro_direccion/', CreateAddress.as_view(), name='registro_direccion'),
     path('tablero/modificar_info_personal/<int:p_id>', UpdatePerson.as_view(), name='modificar_info_personal'),
     path('tablero/modificar_direccion/<int:p_id>', UpdateAddress.as_view(), name='modificar_direccion'),
+    path('pdf/<int:p_id>/', CreatePdf.as_view(), name='pdf-test'),
 ]

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaración Jurada {{persona.nombre}} {{persona.apellido}}</title>
+  <style>
+    .logo{
+      height: 100px;
+      width: 80px;
+    }
+    .container{
+      position: relative;
+    }
+    .title-container{
+      text-align: center;
+      margin: 200px;
+    }
+    .title {
+      font-size: 32px;
+    }
+    .text-container{
+      text-align: justify;
+      position: absolute;
+    }
+    .text{
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .signature-container{
+      text-align: right;
+    }
+    .signer{
+      font-size: 12px;
+    }
+  </style>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDdaEAd5O1fqZBULHDZH9GNVek815mnfPiBTsofe_b2QjssKp0_LUiRvwsRaBvbVO5Eeo&usqp=CAU">
+    </div>
+    <div class="container">
+      <div class="title-container">
+	<h1 class="title">Declaración Jurada de Domicilio</h1>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <div class="text-container">
+	<p class="text">Yo, {{persona.nombre}} {{persona.apellido}}, con el DNI No. {{persona.dni}}, en pleno ejercicio de mis derechos cuidadanos, declaro <b> BAJO JURAMENTO</b> que mi domicilio actual se encuentra ubicado en: {{direccion.calle}} {{direccion.no}}, código postal {{direccion.codigo_postal}}, piso {{direccion.piso}}, departamento {{direccion.departamento}}, en el barrio {{direccion.barrio}}, de la Ciudad Autónoma de Buenos Aires.</p>
+      </div>
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <div class="signature-container">
+      <div class="signer-container">
+	<p class="signer"><b>{{persona.nombre}} {{persona.apellido}}</b></p>
+      </div>
+      <div class="declaration-container">
+      	<p class="declaration">Documento firmado digitalmente</p>
+      </div>
+    </div>
+  </body>
+</html>
+

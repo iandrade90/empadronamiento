@@ -1,24 +1,9 @@
+{% extends "login/base.html" %}
 {% load crispy_forms_tags %}
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAP - Inicio</title>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  </head>
-  <body>
-    <div class="jumbotron">
-      <div class="d-flex flex-row-reverse">
-	<a href="{% url 'logout' %}" class="text-info">Finalizar sesión</a>
-      </div>
-      <div class="">
-	<h1 class="">Bienvenido/a {{ user.username }}</h1>
-      </div>
-    </div>
+{% block title %}Perfil{% endblock %}
+{% block headerTitle %}Bienvenido/a {{ user.username }}{% endblock %}
+{% block content %}
     <div class="">
       {% if user.email %}
       <div class="container-sm card w-50 shadow-lg p-4 mt-5">
@@ -27,6 +12,9 @@
 	</div>
 	<div class="mx-auto">
 	  <h3 class="text-info">{{ user.email }}</h3>
+	</div>
+	<div class="col">
+	  <a href="{% url 'tablero' %}" class="float-right m-2 small text-info">Regresar al Tablero de Inicio</a>
 	</div>
       </div>
       {% else %}
@@ -46,12 +34,5 @@
       </div>
       {% endif %}
     </div>
-    <div class="col">
-      <a href="{% url 'tablero' %}" class="float-right m-2 small text-info">Regresar al Tablero de Inicio</a>
-    </div> 
+{% endblock content %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
-</html>
